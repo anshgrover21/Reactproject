@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
-const API = import.meta.env.API_URL;
+const API = import.meta.env.VITE_API_URL;
 
 const initialState = {
   user: {},
