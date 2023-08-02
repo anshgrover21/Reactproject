@@ -2,7 +2,8 @@ import { createContext, useContext, useReducer } from "react";
 import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
-const API = process.env.API_URL;
+
+const API = import.meta.env.API_URL;
 
 const initialState = {
   user: {},
