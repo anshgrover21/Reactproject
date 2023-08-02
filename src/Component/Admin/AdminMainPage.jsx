@@ -2,6 +2,7 @@ import styles from "./AdminMainPage.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 // import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../Context/AuthContext";
 
 function AdminMainPage() {
   // const { user } = useAuth();
@@ -87,7 +88,7 @@ export default AdminMainPage;
 
 // const uploadFile = async (file, filename, contentType) => {
 //   const response = await fetch(
-//     `http://localhost:3000/upload?filename=${filename}&contentType=${contentType}`
+//     `http://${API}:3000/upload?filename=${filename}&contentType=${contentType}`
 //   );
 //   if (!response.ok) {
 //     throw new Error("Error generating signed URL.");
@@ -160,11 +161,18 @@ export default AdminMainPage;
 // eslint-disable-next-line react-refresh/only-export-components
 export async function getSong(search, page = 0, pageSize = 10, field, name) {
   console.log(name, field, search);
+  const sessionToken = localStorage.getItem("sessionToken");
   try {
     const response = await fetch(
-      `http://localhost:3000/music/getSongs?search=${encodeURIComponent(
+      `http://${API}:3000/music/getSongs?search=${encodeURIComponent(
         search
-      )}&field=${field}&page=${page}&pageSize=${pageSize}&name=${name}`
+      )}&field=${field}&page=${page}&pageSize=${pageSize}&name=${name}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${sessionToken}`, // Add the Authorization header with Bearer token
+        },
+      }
     );
     if (!response.ok) {
       throw new Error("Error fetching user data");

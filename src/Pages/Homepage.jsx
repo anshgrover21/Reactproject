@@ -4,10 +4,11 @@ import styles from "./Homepage.module.css";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { API } from "../Context/AuthContext";
 
 const sendContactForm = async (formData) => {
   try {
-    const response = await fetch("http://localhost:3000/request/send", {
+    const response = await fetch(`http://${API}:3000/request/send`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -5,6 +5,7 @@ import { getGenreAndArtist } from "../../Pages/Search";
 import { toast } from "react-hot-toast";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../Context/AuthContext";
 
 function UploadSong() {
   const [audio, setAudio] = useState(null);
@@ -45,7 +46,7 @@ function UploadSong() {
       genre: genre,
     };
 
-    const response = await fetch("http://localhost:3000/music/upload", {
+    const response = await fetch(`http://${API}:3000/music/upload`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -3,6 +3,7 @@ import styles from "./Mail.module.css";
 import { useQuery } from "@tanstack/react-query";
 import SpinnerFullPage from "../UI/SpinnerFullPage";
 import { FaMailBulk } from "react-icons/fa";
+import { API } from "../Context/AuthContext";
 
 function Mail() {
   const [selected, setSelected] = useState(0);
@@ -13,7 +14,7 @@ function Mail() {
   } = useQuery({
     queryKey: ["requests"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/request/getReq");
+      const response = await fetch(`http://${API}:3000/request/getReq`);
       if (!response.ok) {
         throw new Error("Error fetching requests");
       }

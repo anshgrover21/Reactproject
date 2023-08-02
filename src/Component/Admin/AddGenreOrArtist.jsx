@@ -4,10 +4,11 @@ import { toast } from "react-hot-toast";
 import styles from "./AddGenreOrArtist.module.css";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import { API } from "../../Context/AuthContext";
 
 const addGenreOrArtistMutation = async ({ type, name }) => {
   try {
-    const response = await fetch("http://localhost:3000/music/addGenOrArt", {
+    const response = await fetch(`http://${API}:3000/music/addGenOrArt`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

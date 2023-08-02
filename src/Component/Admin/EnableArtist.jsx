@@ -7,6 +7,7 @@ import Spinner from "../../UI/Spinner";
 import { getGenreAndArtist } from "../../Pages/Search";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { API } from "../../Context/AuthContext";
 
 function EnableArtist() {
   const [search, setSearch] = useState();
@@ -44,7 +45,7 @@ function EnableArtist() {
 
 async function EnableArt(ArtistIds) {
   try {
-    const response = await fetch("http://localhost:3000/music/enableArt", {
+    const response = await fetch(`http://${API}:3000/music/enableArt`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -8,14 +8,22 @@ import List from "../UI/List";
 import { getSong } from "../Component/Admin/AdminMainPage";
 import Spinner from "../UI/Spinner";
 import { useSong } from "../Context/SongContext";
+import { API } from "../Context/AuthContext";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function getGenreAndArtist(showAll, GenOrArtsearch = "") {
   const limit = showAll === 0 ? 4 : null;
   console.log(showAll);
+  const sessionToken = localStorage.getItem("sessionToken");
   try {
     const response = await fetch(
-      `http://localhost:3000/music/getGenreAndArtist?limit=${limit}&GenOrArtsearch=${GenOrArtsearch}`
+      `http://${API}:3000/music/getGenreAndArtist?limit=${limit}&GenOrArtsearch=${GenOrArtsearch}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${sessionToken}`, // Add the Authorization header with Bearer token
+        },
+      }
     );
     if (!response.ok) {
       throw new Error("Error fetching user data");

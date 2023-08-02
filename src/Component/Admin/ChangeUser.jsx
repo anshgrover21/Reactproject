@@ -6,6 +6,7 @@ import Spinner from "../../UI/Spinner";
 import { toast } from "react-hot-toast";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../Context/AuthContext";
 
 function ChangeUser() {
   const [search, setSearch] = useState("");
@@ -79,7 +80,7 @@ async function getUser(search) {
   console.log(search);
   try {
     const response = await fetch(
-      `http://localhost:3000/user/getUsers?search=${encodeURIComponent(search)}`
+      `http://${API}:3000/user/getUsers?search=${encodeURIComponent(search)}`
     );
     if (!response.ok) {
       throw new Error("Error fetching user data");
@@ -140,7 +141,7 @@ function UserNames({ search, setSelect }) {
 async function handleUp(updatedUserData, user) {
   console.log(updatedUserData);
   const response = await fetch(
-    `http://localhost:3000/user/updateUser/${user._id}`,
+    `http://${API}:3000/user/updateUser/${user._id}`,
     {
       method: "PATCH", // Use the PATCH method
       headers: {

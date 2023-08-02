@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import Spinner from "../../UI/Spinner";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../Context/AuthContext";
 
 function DisableSong({ setSelect }) {
   const [search, setSearch] = useState("");
@@ -50,7 +51,7 @@ function DisableSong({ setSelect }) {
 // Function to disable songs on the backend
 async function disableSongs(songIds) {
   try {
-    const response = await fetch("http://localhost:3000/music/disable", {
+    const response = await fetch(`http://${API}:3000/music/disable`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

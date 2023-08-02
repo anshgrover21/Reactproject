@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
+const API = process.env.API_URL;
 
 const initialState = {
   user: {},
@@ -40,7 +41,7 @@ export default function AuthProvider({ children }) {
 
   async function handleSubmit(email, password) {
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch(`http://${API}:3000/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +75,7 @@ export default function AuthProvider({ children }) {
 
     try {
       const decodedToken = await fetch(
-        `http://localhost:3000/user/getUser?token=${sessionToken}`
+        `http://${API}:3000/user/getUser?token=${sessionToken}`
       );
       const response = await decodedToken.json();
       console.log(response); // This will give you the decoded token object
@@ -111,4 +112,4 @@ function useAuth() {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export { useAuth };
+export { useAuth, API };

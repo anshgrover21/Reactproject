@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Player.module.css";
 import { toast } from "react-hot-toast";
+import { API } from "../Context/AuthContext";
+import { FaRepeat } from "react-icons/fa6";
 
 function Player({ song, songList, dispatch }) {
   const audioName = song.songname;
@@ -11,7 +13,17 @@ function Player({ song, songList, dispatch }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [volume, setVolume] = useState(100);
-  console.log(currentSongIndex, songList);
+  const [isLooping, setIsLooping] = useState(false); // State for looping
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.loop = isLooping;
+    }
+  }, [isLooping]);
+
+  const toggleLoop = () => {
+    setIsLooping(!isLooping);
+  };
   useEffect(() => {
     const index = songList.songs.findIndex(
       (item) => item.songname === song.songname
@@ -20,10 +32,16 @@ function Player({ song, songList, dispatch }) {
       setCurrentSongIndex(index);
     }
   }, [song, songList]);
-
+  const sessionToken = localStorage.getItem("sessionToken");
   const fetchAudioUrl = async (audioName) => {
     const response = await fetch(
-      `http://localhost:3000/music/music/${encodeURIComponent(audioName)}`
+      `http://${API}:3000/music/music/${encodeURIComponent(audioName)}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${sessionToken}`, // Add the Authorization header with Bearer token
+        },
+      }
     );
     if (!response.ok) {
       throw new Error("Error fetching audio");
@@ -45,17 +63,18 @@ function Player({ song, songList, dispatch }) {
   useEffect(() => {
     // Check if the audio is playing and if the audioName has changed
     // If so, pause the current audio and update the player to load and play the new audio
-    console.log(audioRef.current.src, audioUrlData);
+    // console.log(audioRef.current.src, audioUrlData);
     if (
       audioRef.current &&
       audioRef.current.src !== audioUrlData &&
       audioRef.current.src !== ""
     ) {
-      console.log(audioRef.current.src, audioUrlData);
+      // console.log(audioRef.current.src, audioUrlData);
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
       setIsPlaying(true);
     }
+    setIsLooping(false);
   }, [audioName, isPlaying, audioUrlData]);
 
   useEffect(() => {
@@ -78,13 +97,26 @@ function Player({ song, songList, dispatch }) {
 
   const onAudioEnded = () => {
     // When the current audio finishes, play the next song if available
-    console.log(currentSongIndex, songList.songs[currentSongIndex]);
+    // console.log(currentSongIndex, songList.songs[currentSongIndex]);
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % songList.songs.length);
     dispatch({
       type: "Nextsong",
       payLoad: songList.songs[(currentSongIndex + 1) % songList.songs.length],
     });
   };
+  function onBack() {
+    setCurrentSongIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + songList.songs.length) % songList.songs.length
+    );
+    dispatch({
+      type: "Nextsong",
+      payLoad:
+        songList.songs[
+          (currentSongIndex - 1 + songList.songs.length) % songList.songs.length
+        ],
+    });
+  }
 
   const onChange = (e) => {
     console.log(e.target.value);
@@ -155,9 +187,13 @@ function Player({ song, songList, dispatch }) {
             </div>
           )}
           <div className={styles.control}>
-            <div style={{ alignSelf: "center" }} className={styles.btn}>
+            <div
+              style={{ alignSelf: "center", cursor: "pointer" }}
+              className={styles.btn}
+              onClick={onBack}
+            >
               <img
-                style={{ height: "30px", width: "20px" }}
+                style={{ height: "40px", width: "40px" }}
                 src="/back.png"
                 alt="back"
               ></img>
@@ -168,27 +204,40 @@ function Player({ song, songList, dispatch }) {
                 alt="play"
               ></img>
             </div>
-            <div style={{ alignSelf: "center" }} className={styles.btn}>
+            <div
+              style={{ alignSelf: "center", cursor: "pointer" }}
+              className={styles.btn}
+              onClick={onAudioEnded}
+            >
               <img
-                style={{ height: "30px", width: "20px" }}
+                style={{ height: "40px", width: "40px" }}
                 src="/Forward.png"
                 alt="forward"
               ></img>
             </div>
           </div>
-          <img src="/Sound.png" alt="Sound" className={styles.sound}></img>
-          <input
-            type="range"
-            value={volume}
-            onChange={(e) => {
-              const newVolume = e.target.value;
-              setVolume(newVolume);
-              audioRef.current.volume = newVolume / 100;
-            }}
-            min="0"
-            max="100"
-            className={styles.volumeSlider}
-          ></input>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <FaRepeat
+              style={{ height: "30px", width: "30px", paddingRight: "50px" }}
+              onClick={toggleLoop}
+              className={`${styles.loopbtn} ${isLooping ? styles.active : ""}`}
+            >
+              Toggle Loop
+            </FaRepeat>
+            <img src="/Sound.png" alt="Sound" className={styles.sound}></img>
+            <input
+              type="range"
+              value={volume}
+              onChange={(e) => {
+                const newVolume = e.target.value;
+                setVolume(newVolume);
+                audioRef.current.volume = newVolume / 100;
+              }}
+              min="0"
+              max="100"
+              className={styles.volumeSlider}
+            ></input>
+          </div>
         </div>
       </div>
     </>

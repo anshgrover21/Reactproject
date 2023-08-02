@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../Context/AuthContext";
 
 function NewUser() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ function NewUser() {
   // Create a mutation function for creating a new user
   const createUserMutation = useMutation({
     mutationFn: (newUser) =>
-      fetch("http://localhost:3000/auth/signup", {
+      fetch(`http://${API}:3000/auth/signup`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
