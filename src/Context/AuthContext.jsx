@@ -43,11 +43,10 @@ export default function AuthProvider({ children }) {
   async function handleSubmit(email, password) {
     console.log(API);
     try {
-      const response = await fetch(`http://${API}:3000/auth/login`, {
+      const response = await fetch(`https://${API}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Forwarded-Proto": "http",
         },
         body: JSON.stringify({ email, password }),
       });
