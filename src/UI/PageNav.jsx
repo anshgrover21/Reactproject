@@ -41,7 +41,6 @@ function PageNav({ activeLink, scrollToSection }) {
   return (
     <nav className={navClass}>
       <Link to="/" className={styles.comp}>
-        <img src="/Logo.png" alt="WorldWise logo" className={styles.logo} />
         <div className={styles.mainHead}>
           <span className={styles.main1}>The Pine Tree </span>
           <span className={styles.main2}>Media and Entertainment </span>
@@ -69,18 +68,6 @@ function PageNav({ activeLink, scrollToSection }) {
           </li>
           <li>
             <Link
-              to="#AboutUs"
-              onClick={() => scrollToSection("AboutUs")}
-              className={styles.lin}
-              style={
-                activeLink === "AboutUs" ? { color: "rgb(132, 132, 228)" } : {}
-              }
-            >
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link
               to="#Collabaration"
               onClick={() => scrollToSection("Collabaration")}
               className={styles.lin}
@@ -91,6 +78,18 @@ function PageNav({ activeLink, scrollToSection }) {
               }
             >
               Collaboration
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="#AboutUs"
+              onClick={() => scrollToSection("AboutUs")}
+              className={styles.lin}
+              style={
+                activeLink === "AboutUs" ? { color: "rgb(132, 132, 228)" } : {}
+              }
+            >
+              About Us
             </Link>
           </li>
           <li>

@@ -8,7 +8,7 @@ import { Toaster } from "react-hot-toast";
 import Mail from "./Component/Mail";
 import AuthProvider from "./Context/AuthContext";
 import Songs from "./Pages/Songs";
-import ProtectedRoute from "./UI/ProtectedRoute";
+// import ProtectedRoute from "./UI/ProtectedRoute";
 import Admin from "./Component/Admin/Admin";
 import SongProvider from "./Context/SongContext";
 import Profile from "./UI/Profile";
@@ -42,9 +42,9 @@ function App() {
               <Route
                 path="/dashboard"
                 element={
-                  <ProtectedRoute>
-                    <AppLayout></AppLayout>
-                  </ProtectedRoute>
+                  // <ProtectedRoute>
+                  // </ProtectedRoute>
+                  <AppLayout></AppLayout>
                 }
               >
                 <Route index element={<Navigate replace to="search" />} />

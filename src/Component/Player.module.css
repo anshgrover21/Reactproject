@@ -51,18 +51,19 @@
 }
 
 .control {
-  width: 400px;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 }
 
-.btn {
-  margin-left: 1px;
-}
-
-.btn img {
+.play {
   height: 100px;
   width: 100px;
+}
+
+.back {
+  height: 40px;
+  width: 40px;
 }
 
 .controls {
@@ -102,9 +103,9 @@
 
 .sliderContain {
   display: grid;
-  grid-template-columns: repeat(2, 2fr) 1.5fr;
+  grid-template-columns: repeat(2, 25vw) 25vw;
   grid-template-rows: 1fr;
-  grid-column-gap: 12vw;
+  grid-column-gap: 10vw;
   grid-row-gap: 0px;
   position: relative;
   width: 100%;
@@ -112,6 +113,11 @@
   text-align: center;
   color: white;
   align-items: center;
+  justify-content: center;
+}
+
+.volumeSlider {
+  width: 10vw;
 }
 
 .active {
@@ -125,7 +131,6 @@
 }
 
 .dash {
-  margin-left: 20px;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -234,4 +239,54 @@
   transform: translate(0%, -50%);
   pointer-events: none; /* Remove pointer events on thumb so user can click on the actual thumb beaneath it!  */
   user-select: none;
+}
+
+@media screen and (max-width: 820px) {
+  .play {
+    height: 80px;
+    width: 80px;
+  }
+  .back {
+    height: 30px;
+    width: 30px;
+  }
+  .genre {
+    font-size: 12px;
+  }
+  .songname {
+    font-size: 20px;
+  }
+  .dash {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .genre {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .volumeSlider {
+    display: none;
+  }
+  .sound {
+    display: none;
+  }
+  .loopbtn {
+    display: none;
+  }
+  .sliderContain {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: space-between;
+  }
+  .namGen {
+    width: fit-content;
+  }
+  .control {
+    justify-content: end;
+  }
 }

@@ -45,11 +45,12 @@ function UploadSong() {
       artist: artist,
       genre: genre,
     };
-
+    const sessionToken = localStorage.getItem("sessionToken");
     const response = await fetch(`http://${API}:3000/music/upload`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${sessionToken}`,
       },
       body: JSON.stringify(data),
     });

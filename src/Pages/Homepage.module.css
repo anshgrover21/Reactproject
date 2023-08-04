@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500&family=League+Spartan&family=Roboto:wght@400;500;700&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500&family=League+Spartan&family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500&family=Work+Sans&display=swap");
 .page {
   background-color: #151a27;
 }
@@ -58,8 +56,7 @@
 
 .btn {
   color: rgb(17, 17, 17);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Poppins;
   padding: 0.8rem 0.6rem;
   font-family: inherit;
   font-size: 1rem;
@@ -110,7 +107,7 @@
 .phil {
   font-size: 3rem;
   font-weight: 600;
-  font-family: "Roboto";
+  font-family: Poppins;
   color: rgb(17, 17, 17);
   padding-top: 10px;
   padding-left: 10px;
@@ -122,14 +119,16 @@
   width: 58vw;
   height: 98%;
   font-weight: 600;
-  font-family: "Roboto";
+  font-family: Poppins;
   color: white;
   padding-top: 10px;
 }
 
 .glassmorphism_div {
-  width: 80%;
-  height: 550px;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
   background-image: linear-gradient(
     to right,
     #a7aab511,
@@ -138,8 +137,21 @@
     #a7aab511
   );
   border-radius: 15px;
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.glassmorphism_di {
+  width: 90%;
+  height: 90%;
+  border-radius: 15px;
   margin: 20px;
-  padding: 20px;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -149,7 +161,7 @@
   justify-content: center;
 }
 .collab_div {
-  width: 80%;
+  width: 95%;
   height: 550px;
   background-image: linear-gradient(
     to right,
@@ -166,12 +178,12 @@
   align-items: center;
   justify-content: space-around;
   color: white;
-  font-family: Roboto;
+  font-family: Poppins;
 }
 
 .formHeader {
   z-index: 2;
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 500;
   background-image: linear-gradient(
     to bottom,
@@ -184,7 +196,7 @@
   background-clip: text;
   -webkit-background-clip: text; /* For Safari/WebKit browsers */
   color: transparent;
-  font-size: 73px;
+  font-size: 53px;
   font-weight: bold;
   text-align: center;
   font-family: Anton;
@@ -194,7 +206,7 @@
   z-index: 2;
   font-size: 15px;
   font-weight: 400;
-  font-family: Roboto;
+  font-family: Poppins;
   color: #a7aab5;
 }
 
@@ -222,7 +234,7 @@
   font-family: sans-serif;
   align-self: flex-start;
   padding-left: 10px;
-  font-family: "Roboto";
+  font-family: Poppins;
 }
 
 .inp {
@@ -250,7 +262,7 @@
   width: 400px;
   align-self: flex-start;
   color: white;
-  font-family: "Roboto";
+  font-family: Poppins;
   text-align: left;
 }
 .musean {
@@ -259,7 +271,7 @@
   width: 500px;
   align-self: flex-start;
   color: #f3e34e;
-  font-family: "Roboto";
+  font-family: Poppins;
   text-align: left;
 }
 
@@ -269,7 +281,7 @@
   font-size: 1.7rem;
   width: 100%;
   align-self: flex-start;
-  font-family: "Roboto";
+  font-family: Poppins;
   text-align: left;
   color: rgb(17, 17, 17);
   text-align: center;
@@ -325,7 +337,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
+  width: 70%;
   background: radial-gradient(
     circle,
     #fcfcfc,
@@ -337,7 +349,7 @@
   background-clip: text;
   -webkit-background-clip: text; /* For Safari/WebKit browsers */
   color: transparent;
-  font-size: 113px;
+  font-size: 93px;
   font-weight: bold;
   text-align: center;
   font-family: Anton;
@@ -468,13 +480,13 @@
   z-index: 2;
   font-size: 36px;
   font-weight: 500;
-  font-family: Roboto;
+  font-family: Poppins;
 }
 .divText2 {
   z-index: 2;
   font-size: 16px;
   font-weight: 400;
-  font-family: Roboto;
+  font-family: Poppins;
   color: #a7aab5;
 }
 
@@ -499,7 +511,7 @@
   font-weight: 300;
   font-size: 20px;
   width: 150px;
-  height: 40px;
+  height: 50px;
   color: white;
   display: flex;
   align-items: center;
@@ -507,9 +519,10 @@
   justify-content: center;
   background-color: #37c25e;
   padding: 4px 15px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-family: Poppins;
 }
 
 .login {
@@ -641,7 +654,7 @@
   font-weight: 400;
   font-size: 22px;
   margin-bottom: 3px;
-  font-family: Roboto;
+  font-family: Poppins;
   color: white;
 }
 .main2 {
@@ -650,7 +663,7 @@
   font-size: 14px;
   padding-left: 2px;
   color: #a7aab5;
-  font-family: Roboto;
+  font-family: Poppins;
 }
 
 .logo {
@@ -681,6 +694,8 @@
   color: #a7aab5;
   margin-right: 20px;
   width: 210px;
+  font-family: Poppins;
+  font-size: 14px;
 }
 
 .whyChoose1 {

@@ -47,12 +47,13 @@ function Search() {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            marginTop: "16px",
-            marginBottom: "20px",
+            justifyContent: "flex-end",
           }}
         >
-          <AiOutlineSearch className={styles.search_icon} />
+          <AiOutlineSearch
+            style={{ fontSize: "3rem" }}
+            className={styles.search_icon}
+          />
           <input
             className={styles.in}
             style={{ border: "none" }}
@@ -64,6 +65,7 @@ function Search() {
       </div>
 
       <hr
+        className={styles.hr}
         style={{
           marginTop: "10px",
           marginBottom: "10px",
@@ -103,18 +105,26 @@ function SearchBar({ GenOrArtsearch }) {
             <>
               <div className={styles.listheader}>
                 {showAll !== 0 && (
-                  <button className={styles.back} onClick={() => setShowAll(0)}>
-                    <FaArrowLeft></FaArrowLeft>
-                  </button>
-                )}
-                <p>By Genre</p>
-                {showAll === 0 && (
-                  <button
-                    onClick={() => setShowAll(1)}
-                    className={styles.showAll}
+                  <div
+                    style={{ display: "flex", justifyContent: "flex-start" }}
                   >
-                    Show All
-                  </button>
+                    <FaArrowLeft
+                      className={styles.back}
+                      onClick={() => setShowAll(0)}
+                    ></FaArrowLeft>
+                    <span>By Genre</span>
+                  </div>
+                )}
+                {showAll === 0 && (
+                  <>
+                    <p>By Genre</p>
+                    <button
+                      onClick={() => setShowAll(1)}
+                      className={styles.showAll}
+                    >
+                      Show All
+                    </button>
+                  </>
                 )}
               </div>
               <div className={styles.list}>
@@ -129,18 +139,26 @@ function SearchBar({ GenOrArtsearch }) {
             <>
               <div style={{ paddingTop: "20px" }} className={styles.listheader}>
                 {showAll !== 0 && (
-                  <button className={styles.back} onClick={() => setShowAll(0)}>
-                    <FaArrowLeft></FaArrowLeft>
-                  </button>
-                )}
-                <p>By Artist</p>
-                {showAll === 0 && (
-                  <button
-                    onClick={() => setShowAll(2)}
-                    className={styles.showAll}
+                  <div
+                    style={{ display: "flex", justifyContent: "flex-start" }}
                   >
-                    Show All
-                  </button>
+                    <FaArrowLeft
+                      className={styles.back}
+                      onClick={() => setShowAll(0)}
+                    ></FaArrowLeft>
+                    <p>By Artist</p>
+                  </div>
+                )}
+                {showAll === 0 && (
+                  <>
+                    <p>By Artist</p>
+                    <button
+                      onClick={() => setShowAll(2)}
+                      className={styles.showAll}
+                    >
+                      Show All
+                    </button>
+                  </>
                 )}
               </div>
               <div className={styles.list}>

@@ -7,7 +7,9 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   width: 280px;
+  padding-top: 10px;
   background-color: #151a27;
 }
 
@@ -28,15 +30,15 @@
   scale: 1.5;
 }
 
-@media screen and (max-width: 760px) {
+/* @media screen and (max-width: 760px) {
   .sidebar {
     width: 150px;
   }
-}
+} */
 
 .Player {
   position: fixed;
-  top: 558px;
+  bottom: 0px;
   left: 0px;
   width: 100%;
 }
@@ -95,4 +97,53 @@
   color: white;
   font-size: 15px;
   border-bottom: 2px solid rgb(146, 139, 139);
+}
+
+@media screen and (max-width: 750px) {
+  .sidebar {
+    width: 300px;
+  }
+}
+
+/* @media screen and (max-width: 946px) {
+  .user {
+    top: 2.1rem;
+  }
+} */
+
+.mob {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobheader {
+  background-color: #151a27;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  align-items: center;
+  height: 7vh;
+  font-family: Inter;
+  font-size: 25px;
+}
+
+.mobreminder {
+  position: fixed;
+  background-color: rgb(195, 199, 202);
+  width: 98%;
+  font-family: Inter;
+  display: flex;
+  justify-content: space-between;
+  top: 0px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+}
+
+.mobclose {
+  border: none;
+  background-color: inherit;
+  padding-right: 10px;
+  scale: 1.5;
 }

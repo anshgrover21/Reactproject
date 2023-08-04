@@ -9,7 +9,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 1076px;
+  width: 100vw;
   background-color: white;
   margin-top: 10px;
   border-radius: 12px;
@@ -20,7 +20,7 @@
 .showAll {
   border: none;
   color: #310058;
-  font-size: 18px;
+  font-size: 10px;
   background-color: inherit;
 }
 
@@ -28,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0px 60px;
-  font-family: Inter;
+  font-family: Poppins;
   font-size: 23px;
 }
 
@@ -44,14 +44,13 @@
 
 .search_icon {
   scale: 0.4;
-  position: absolute;
+  position: relative;
   z-index: 2;
-  top: 39px;
+  left: 42px;
 }
 
 .in {
   color: rgba(0, 0, 0, 0.822);
-  margin-top: 10px;
   margin-left: 0px;
   height: 40px;
   width: 16vw;
@@ -60,8 +59,8 @@
   font-size: 1.1rem;
   padding: 4px 10px;
   padding-left: 40px;
-  margin-right: 10px;
   border: none;
+  align-self: end;
 }
 
 .search {
@@ -83,7 +82,11 @@
 }
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr) 0.4fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 7px;
+  grid-row-gap: 0px;
   font-size: 3rem;
   margin-left: 40px;
   font-family: Inter;
@@ -114,12 +117,12 @@
   align-items: center;
   color: black;
   border-radius: 12px;
-  width: 12vw;
-  height: 9vw;
+  width: 150px;
+  height: 80px;
 }
 
 .genName {
-  font-size: 2vw;
+  font-size: 20px;
   padding: 0px 5px;
   font-family: Roboto;
 }
@@ -147,7 +150,7 @@ img {
 .showAll {
   border: none;
   color: rgb(74, 80, 85);
-  font-size: 25px;
+  font-size: 18px;
   background-color: inherit;
 }
 
@@ -156,6 +159,7 @@ img {
   font-size: 30px;
   width: 20px;
   border: none;
+  padding-right: 8px;
 }
 
 .AllSongs {
@@ -163,4 +167,37 @@ img {
   flex-direction: column;
   justify-content: flex-start;
   height: 400px;
+}
+
+@media screen and (max-width: 750px) {
+  .header {
+    font-size: 2rem;
+    grid-column-gap: 10vw;
+  }
+  .in {
+    display: none;
+  }
+  .search_icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header {
+    display: none;
+  }
+  .hr {
+    display: none;
+  }
+  .song {
+    height: 130px;
+    width: 150px;
+  }
+  .listheader {
+    padding: 0px 10px;
+  }
+  .list {
+    padding: 10px;
+    justify-content: center;
+  }
 }

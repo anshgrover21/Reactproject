@@ -7,9 +7,9 @@
   position: fixed;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1.5fr 4fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 50px;
-  grid-column-gap: 50px;
+  grid-column-gap: 0px;
   grid-row-gap: 0px;
   padding-bottom: 10px;
 }
@@ -45,11 +45,11 @@
 .fields {
   list-style: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
   padding-left: 0px;
-  font-family: Plus Jakarta Sans;
+  font-family: Poppins;
 }
 
 .lin {

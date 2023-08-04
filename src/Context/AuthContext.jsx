@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
-const API = import.meta.env.VITE_API_URL;
+const API = "localhost";
 
 const initialState = {
   user: {},
@@ -43,7 +43,7 @@ export default function AuthProvider({ children }) {
   async function handleSubmit(email, password) {
     console.log(API);
     try {
-      const response = await fetch(`https://${API}/auth/login`, {
+      const response = await fetch(`http://${API}:3000/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

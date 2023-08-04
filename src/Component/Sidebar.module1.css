@@ -1,9 +1,8 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  height: 900px;
+  height: 100vh;
   margin-left: 4px;
-  margin-top: 8px;
   margin-right: 10px;
   border-radius: 12px;
   width: 300px;
@@ -83,5 +82,4 @@ li a:global(.active) {
   list-style: none;
   height: 400px;
   width: 100%;
-  padding-bottom: 20px;
 }

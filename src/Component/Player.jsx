@@ -192,14 +192,11 @@ function Player({ song, songList, dispatch }) {
               className={styles.btn}
               onClick={onBack}
             >
-              <img
-                style={{ height: "40px", width: "40px" }}
-                src="/back.png"
-                alt="back"
-              ></img>
+              <img className={styles.back} src="/back.png" alt="back"></img>
             </div>
             <div className={styles.btn} onClick={() => play()}>
               <img
+                className={styles.play}
                 src={`${isPlaying ? "/Play.png" : "/Pause.png"}`}
                 alt="play"
               ></img>
@@ -210,33 +207,45 @@ function Player({ song, songList, dispatch }) {
               onClick={onAudioEnded}
             >
               <img
-                style={{ height: "40px", width: "40px" }}
+                className={styles.back}
                 src="/Forward.png"
                 alt="forward"
               ></img>
             </div>
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <FaRepeat
-              style={{ height: "30px", width: "30px", paddingRight: "50px" }}
+              style={{ height: "50px", width: "30px", paddingRight: "10px" }}
               onClick={toggleLoop}
               className={`${styles.loopbtn} ${isLooping ? styles.active : ""}`}
             >
               Toggle Loop
             </FaRepeat>
-            <img src="/Sound.png" alt="Sound" className={styles.sound}></img>
-            <input
-              type="range"
-              value={volume}
-              onChange={(e) => {
-                const newVolume = e.target.value;
-                setVolume(newVolume);
-                audioRef.current.volume = newVolume / 100;
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
               }}
-              min="0"
-              max="100"
-              className={styles.volumeSlider}
-            ></input>
+            >
+              <img src="/Sound.png" alt="Sound" className={styles.sound}></img>
+              <input
+                type="range"
+                value={volume}
+                onChange={(e) => {
+                  const newVolume = e.target.value;
+                  setVolume(newVolume);
+                  audioRef.current.volume = newVolume / 100;
+                }}
+                min="0"
+                max="100"
+                className={styles.volumeSlider}
+              ></input>
+            </div>
           </div>
         </div>
       </div>

@@ -70,10 +70,10 @@ export default function ScrollHaandler() {
       if (scrollPosition < 500) {
         setActiveLink("home");
       } else if (scrollPosition >= 500 && scrollPosition < 1000) {
-        setActiveLink("AboutUs");
-      } else if (scrollPosition >= 1200 && scrollPosition < 1700) {
         setActiveLink("Collabaration");
-      } else if (scrollPosition >= 2000 && scrollPosition < 2500) {
+      } else if (scrollPosition >= 1000 && scrollPosition < 1600) {
+        setActiveLink("AboutUs");
+      } else if (scrollPosition >= 2500 && scrollPosition < 2900) {
         setActiveLink("ContactUs");
       }
     };
@@ -100,19 +100,41 @@ export default function ScrollHaandler() {
       </div>
       <anchor id="home">
         <section className={styles.section}>
-          <div className={styles.text}>EPIC MUSIC EXPERIENCE</div>
-          <div style={{ fontFamily: "sans-serif", marginBottom: "20px" }}>
-            We have the perfect copywrite-free music around the world and
-            discover them now
-          </div>
-          <div className={styles.login}>
-            <button
-              to="#AboutUs"
-              className={styles.logbtn}
-              onClick={() => scrollToSection("AboutUs")}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
-              About Us
-            </button>
+              <div className={styles.text}>EPIC MUSIC EXPERIENCE</div>
+              <div style={{ fontFamily: "Poppins", marginBottom: "20px" }}>
+                We have the perfect copywrite-free music around the world and
+                discover them now
+              </div>
+              <div className={styles.login}>
+                <button
+                  to="#AboutUs"
+                  className={styles.logbtn}
+                  onClick={() => scrollToSection("AboutUs")}
+                >
+                  About Us
+                </button>
+              </div>
+            </div>
+            <img
+              src="/piano1.png"
+              alt="ig"
+              style={{ height: "450px", width: "500px" }}
+            ></img>
           </div>
         </section>
       </anchor>
@@ -127,7 +149,7 @@ export default function ScrollHaandler() {
       </div>
       <anchor id="Collabaration"></anchor>
       <section className={styles.col}>
-        <div className={styles.text} style={{ fontSize: "4rem" }}>
+        <div className={styles.text} style={{ fontSize: "5rem", width: "80%" }}>
           OUR COLLABORATION
         </div>
         <div className={styles.collab_div}>
@@ -137,7 +159,9 @@ export default function ScrollHaandler() {
               src="/AmisiErio.jpeg"
               alt="AmisiErio"
             ></img>
-            <h1 style={{ paddingTop: "10px", fontSize: "2rem" }}>AMISI ERIO</h1>
+            <h1 style={{ paddingTop: "10px", fontSize: "1.5rem" }}>
+              AMISI ERIO
+            </h1>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <img
@@ -145,7 +169,9 @@ export default function ScrollHaandler() {
               src="/TwinKings.jpeg"
               alt="TWIN KING"
             ></img>
-            <h1 style={{ paddingTop: "10px", fontSize: "2rem" }}>TWIN KINGS</h1>
+            <h1 style={{ paddingTop: "10px", fontSize: "1.5rem" }}>
+              TWIN KINGS
+            </h1>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <img
@@ -153,7 +179,7 @@ export default function ScrollHaandler() {
               src="/Power.jpeg"
               alt="Power"
             ></img>
-            <h1 style={{ paddingTop: "10px", fontSize: "2rem" }}>
+            <h1 style={{ paddingTop: "10px", fontSize: "1.5rem" }}>
               POWER MUSIC EMPIRE
             </h1>
           </div>
@@ -225,149 +251,67 @@ export default function ScrollHaandler() {
           flexDirection: "column",
           alignItems: "center",
         }}
-      >
-        <div className={styles.text4}>WHY CHOOSE US </div>
-        <div className={styles.whyChoose1}>
-          <span className={styles.text5}>1. Copyright-Free Music</span>
-          <div
-            style={{
-              fontFamily: "sans-serif",
-              marginBottom: "20px",
-              fontSize: "22px",
-              fontWeight: "100px",
-              color: "white",
-              textAlign: "justify",
-              margin: "10px 5px",
-              width: "50%",
-            }}
-          >
-            Your peace of mind is essential to us.That&apos;s why our music
-            collection is carefully curated to be completely free from any
-            copyright restrictions. With us, you can say goodbye to legal
-            challenges and costly licensing fees.
-          </div>
-        </div>
-        <div className={styles.whyChoose1}>
-          <span
-            style={{
-              fontFamily: "sans-serif",
-              marginBottom: "20px",
-              fontSize: "22px",
-              fontWeight: "100px",
-              color: "white",
-              paddingLeft: "20px",
-              margin: "10px 5px",
-              textAlign: "justify",
-              width: "50%",
-            }}
-          >
-            Our expertly curated library covers a rich tapestry of musical
-            styles, ensuring that y find the right music for any occasion. We
-            understand that every establishment is unique, and our diverse
-            collection reflects just that.
-          </span>
-          <span className={styles.text6}>
-            2.Varied Genres for Every Occasion
-          </span>
-        </div>
-        <div className={styles.whyChoose1}>
-          <span className={styles.text7}>3. Seamless Integration</span>
-          <span
-            style={{
-              fontFamily: "sans-serif",
-              marginBottom: "20px",
-              fontSize: "22px",
-              fontWeight: "100px",
-              paddingRight: "30px",
-              color: "white",
-              margin: "10px 5px",
-              textAlign: "justify",
-              width: "50%",
-            }}
-          >
-            We understand that you have a business to run, and we want to make
-            the process of integrating our music solution as smooth as possible.
-            Our dedicated team of experts will work closely with you to
-            seamlessly integrate our music into your establishment.
-          </span>
-        </div>
-        <div className={styles.whyChoose1}>
-          <div className={styles.whyChoose1}>
-            <span
-              style={{
-                fontFamily: "sans-serif",
-                marginBottom: "20px",
-                fontSize: "22px",
-                fontWeight: "100px",
-                color: "white",
-                paddingLeft: "20px",
-                margin: "10px 5px",
-                textAlign: "justify",
-                width: "50%",
-              }}
-            >
-              Our expertly curated library covers a rich tapestry of musical
-              styles, ensuring that y find the right music for any occasion. We
-              understand that every establishment is unique, and our diverse
-              collection reflects just that.
-            </span>
-            <span className={styles.text8}>
-              4.Economical and Quality Focused
-            </span>
-          </div>
-        </div>
-      </div>
+      ></div>
       <anchor id="ContactUs">
         <section className={styles.collaborate}>
-          <div className={styles.glassmorphism_div}>
-            <span className={styles.formHeader}>Contact Us</span>
-            <span className={styles.formContent}>
-              Tell us anything you want to say to us. We welcome your
-              feedback.😉
-            </span>
-            <form onSubmit={handleSubmit} className={styles.inputs}>
-              <input
-                className={styles.data}
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setname(e.target.value)}
-                required
-              />
-              <input
-                className={styles.data}
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <input
-                className={styles.data}
-                type="number"
-                placeholder="Mobile Number"
-                value={number}
-                onChange={(e) => setNumber(e.target.value)}
-                required
-              />
-              <textarea
-                className={styles.data}
-                placeholder="Tell us Something"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                style={{
-                  height: "90px",
-                  width: "100%",
-                  padding: "10px 10px",
-                  fontSize: "16px",
-                }}
-              />
+          <div className={styles.glassmorphism_di}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <img
+                src="ig.png"
+                alt="ig"
+                style={{ height: "400px", width: "400px" }}
+              ></img>
+              <div className={styles.glassmorphism_div}>
+                <span className={styles.formHeader}>Contact Us</span>
+                <span className={styles.formContent}>
+                  Tell us anything you want to say to us. We welcome your
+                  feedback.😉
+                </span>
+                <form onSubmit={handleSubmit} className={styles.inputs}>
+                  <input
+                    className={styles.data}
+                    type="text"
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e) => setname(e.target.value)}
+                    required
+                  />
+                  <input
+                    className={styles.data}
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <input
+                    className={styles.data}
+                    type="number"
+                    placeholder="Mobile Number"
+                    value={number}
+                    onChange={(e) => setNumber(e.target.value)}
+                    required
+                  />
+                  <textarea
+                    className={styles.data}
+                    placeholder="Tell us Something"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    style={{
+                      height: "90px",
+                      width: "100%",
+                      padding: "10px 10px",
+                      fontSize: "16px",
+                    }}
+                  />
 
-              <button type="submit" className={styles.btn}>
-                Send message
-              </button>
-            </form>
+                  <button type="submit" className={styles.btn}>
+                    Send message
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
       </anchor>
