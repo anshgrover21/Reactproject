@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
-const API = "52.66.90.45";
+const API = "thepinetree.co.in/api";
 
 const initialState = {
   user: {},
